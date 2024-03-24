@@ -1,4 +1,4 @@
-from renderlib import *
+from drawtimeline import *
 
 svg = Render(max_screen_width=1200, stretch_to_screen=True, ignore_screen_size=False)
 
