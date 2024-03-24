@@ -7,7 +7,7 @@ svg = Render(max_screen_width=1200, stretch_to_screen=True, ignore_screen_size=F
 #svg.load_data_from_csv('RWA_19032024.csv')
 svg.load_data_from_csv('render_input_RWA.csv')
 
-svg.process_raw_data(normalize_time=False)
+svg.process_rawdata(normalize_time=False)
 
 svg.render()
 svg.save_svg()

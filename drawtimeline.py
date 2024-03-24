@@ -1,19 +1,12 @@
-# timelinerender v 4.1
+# drawtimeline 4.1
 
 import drawsvg 
 import csv
 import json
 from config import *
 
-
-# TODO сделать список минимально достаточных цветов в палитре для конфигурации
-# TODO сделать функции для отрисовки элементов с возможностью кастомизации
-# TODO сделать проверку формата входного файла CSV, вывод ошибок
-# TODO сделать проверку формата входного файла JSON, вывод ошибок
-
-
        
-# Tile - class for data rectangles (draw parameters)
+# Tile - класс для ячеек с данными
 class Tile:
 
     def __init__(self, rowid, start, finish, real_start, real_finish, duration, color, caption, font_size, rx, opacity):
@@ -38,7 +31,7 @@ class Tile:
 
 
 
-# Class for the Data ares
+# Data_area - класс для блока данных с набором отрисовываемых временных шкал
 class Data_area:
 
     def __init__(self, id, time_start, time_finish):
@@ -55,10 +48,10 @@ class Data_area:
 
 
 
-# General class
+# Render - основной класс для отрисовки
 class Render:
 
-    # 0 step
+    # 0 шаг, инициализация
     def __init__(self, max_screen_width=1920, ignore_screen_size=True, debug=False, stretch_to_screen=False):
         
         self.d = drawsvg.Drawing(0,0)    
@@ -94,15 +87,15 @@ class Render:
             print (debug_element)
 
 
-    # 1 step
-    # CSV FORMAT:  [0] row number, [1] id, [2] desc, [3] start, [4] finish, [5] color, [6] caption
+    # 1 шаг (CSV)
+    # Формат CSV:  [0] номер дорожки, [1] ID источника/системы, [2] Описание источника/системы, [3] время старта, [4] время завершения, [5] цвет, [6] описание действий
     def load_data_from_csv (self, filename):
 
         self.debug (f"\n{bcolors.CYELLOW}Loading raw data from CSV '{bcolors.CGREEN}{filename}{bcolors.CEND}'")
         self.filename = filename
         file_row_id = 0
         with open(self.filename, encoding='utf-8') as csv_file:
-            # read every row
+            # читаем файл по строкам
             for row in csv.reader(csv_file, delimiter=';'):
                 file_row_id += 1
                 cell_start_time = Rtime.fromstr (row[3])
@@ -111,7 +104,7 @@ class Render:
                     self.max_time = cell_finish_time
                 if self.max_rows < int(row[0]):
                     self.max_rows = int(row[0])
-                # add to rawdata
+                # добавляем в rawdata
                 self.rawdata.append({
                     'filerowid' : file_row_id,
                     'rowid': int(row[0]) - 1, 
@@ -132,15 +125,15 @@ class Render:
                    f"\n\t- {bcolors.CGREEN}{self.max_time}{bcolors.CEND} max time")
 
 
-    # 1 step
-    # JSON FORMAT:  BUG: _no format_
+    # 1 шаг (JSON)
+    # JSON формат:  BUG: _no format_
     def load_data_from_json (self, filename):
 
         self.debug (f"\n{bcolors.CYELLOW}Loading raw data from JSON '{bcolors.CGREEN}{filename}{bcolors.CEND}'")
         self.filename = filename
         file_row_id = 0
         with open(self.filename, encoding='utf-8') as csv_file:
-            # read every row
+            # читаем файл по строкам
             for row in csv.reader(csv_file, delimiter=';'):
                 file_row_id += 1
                 cell_start_time = Rtime.fromstr (row[3])
@@ -149,7 +142,7 @@ class Render:
                     self.max_time = cell_finish_time
                 if self.max_rows < int(row[0]):
                     self.max_rows = int(row[0])
-                # add to rawdata
+                # добавляем в rawdata
                 self.rawdata.append({
                     'filerowid' : file_row_id,
                     'rowid': int(row[0]) - 1, 
@@ -170,26 +163,25 @@ class Render:
                    f"\n\t- {bcolors.CGREEN}{self.max_time}{bcolors.CEND} max time")
         
 
-    # 2 step
-    # normalize_time flag = TRUE calculates min start time and decreases all time ranges to T = 00:00:00
-    def process_raw_data(self, normalize_time=False):
+    # 2 шаг - обработка загруженных данных в rawdata
+    def process_rawdata(self, normalize_time=False):
     
         self.debug(f"\n{bcolors.CYELLOW}Processing raw data{bcolors.CEND} (time normalization flag = {bcolors.CYELLOW}{normalize_time}{bcolors.CEND})")
 
         min_time = Rtime(1000,0,0)
         
-        # get ID and descriptions, process time
+        # загрузить ID и описания, вычислить временные рамки
         for i in range (self.max_rows):
             self.id_array.append("")
             self.desc_array.append("")
         for rw in self.rawdata:
             self.id_array[rw['rowid']] = rw['id_text']
             self.desc_array[rw['rowid']] = rw['desc_text']
-            # calc min time
+            # расчет минимального времени начала
             if rw['start'] < min_time:
                 min_time = Rtime.fromint(rw['start'].time)
         
-        # normalize time
+        # normalize_time: если значение TRUE, вычисляем min время начала и сдвигаем влево все ячейки к отметке T = 00:00:00 (TRIM времени по левой границе, нормализация)
         if normalize_time:
             self.debug (f"Normalizing time, delta = {bcolors.CYELLOW}{min_time}{bcolors.CEND}")
             for i in range(len(self.rawdata)):
@@ -205,7 +197,7 @@ class Render:
         for i in range(self.max_rows):
             self.debug(f"\t{i+1}\t{self.desc_array[i]}")
             
-        # calculate render area dimensions
+        # расчет размеров отрисовки и параметров рендера
         self.debug(f"{bcolors.CCYAN}Render parameters{bcolors.CEND}")
         data_tiles_max_width = calc_time_x_width(self.max_time, default_cell_width)
         render_screen_max_width = default_id_column_width + default_desc_column_width + data_tiles_max_width
@@ -229,7 +221,7 @@ class Render:
                     f"Data tiles width - {bcolors.CGREEN}{data_tiles_width}{bcolors.CEND} " +
                     f"Render width - {bcolors.CGREEN}{self.render_width}{bcolors.CEND}")
 
-        # calcultate render size and number of data areas
+        # расчет разсмера картинки и числа блоков с data_area
         if not self.ignore_screen_size:
             self.max_cols = 1
             while self.width > default_id_column_width + default_desc_column_width + self.max_cols * default_cell_width:
@@ -245,7 +237,7 @@ class Render:
         self.debug (f"\tNumber of data areas - {bcolors.CGREEN}{self.data_count}{bcolors.CEND}")
         self.debug (f"\tNumber of hours in data area - {bcolors.CGREEN}{self.max_cols}{bcolors.CEND} with {bcolors.CGREEN}{self.max_cols}{bcolors.CEND} columns")
         
-        # prepare data are empty arrays with time parameters
+        # первоначальное наполнение массива элементов data_area с параметрами времени начала и завершения
         render_time = Rtime.fromint (Rtime(1,0,0).time * self.max_cols)     #  render time = 1 hour * number of cells
         self.debug (f"{bcolors.CCYAN}Calculated data areas{bcolors.CEND}")
         self.debug (f"\tmax cols = {bcolors.CYELLOW}{self.max_cols}{bcolors.CEND} render time = {bcolors.CYELLOW}{render_time}{bcolors.CEND}")
@@ -260,10 +252,10 @@ class Render:
             self.data_area.append(Data_area(i, t_start, t_finish))
             self.debug(f"\t{self.data_area[i]}")
 
-        # fill data areas with tiles 
+        # наполнение всех data_area с соответствущими их времени начала и завершения ячейками (tile)
         self.debug (f"{bcolors.CCYAN}Filling data areas with tiles{bcolors.CEND}")
         for rw in self.rawdata:
-            # calculate areas
+            # расчет data_area
             area_start = self.get_data_area(rw['start'])
             area_finish = self.get_data_area(rw['finish'])
             if area_start != area_finish:
@@ -272,12 +264,12 @@ class Render:
                        f" between data area {bcolors.CGREEN}{area_start}{bcolors.CEND} and {bcolors.CGREEN}{area_finish}{bcolors.CEND}" +
                        f" (cell finish - {bcolors.CYELLOW}{rw['finish']}{bcolors.CEND})," +
                        f" data area finish - {bcolors.CYELLOW}{self.data_area[area_start].time_finish}{bcolors.CEND})")
-            # add cells
+            # добавление ячеек
             self.debug (f"{bcolors.CRED}\tSplit row {bcolors.CYELLOW}{rw['filerowid']}{bcolors.CEND}" +
                         f" between total areas = {bcolors.CYELLOW}{self.data_count}{bcolors.CEND} " +
                         f"area_start={bcolors.CYELLOW}{area_start}{bcolors.CEND} area_finish={bcolors.CYELLOW}{area_finish}{bcolors.CEND}")
             for da in range (area_start, area_finish + 1):
-                # calc exact start and finish time for the "rw" cell in the [da] data area
+                # расчет точного времени начала и завершения для rw" ячейки в [da] data_area
                 if da == area_start:
                     r_st_time = Rtime.fromint(max(self.data_area[da].time_start.time, rw['start'].time) - render_time.time * da)
                 else:
@@ -288,7 +280,7 @@ class Render:
                     r_fi_time = render_time
                 self.debug(f"\t  Time bounds for file row {bcolors.CYELLOW}{rw['filerowid']}{bcolors.CEND} " +
                            f"in data area {bcolors.CYELLOW}{da}{bcolors.CEND} is {bcolors.CGREEN}{repr(r_st_time)} - {repr(r_fi_time)}{bcolors.CEND}")
-                # split cell 
+                # разделение ячейки ("перенос строки", если не помещается в текущий блок данных)
                 cell_cap1 = rw['caption']
                 cell_cap2 = f"{rw['duration']}"
                 self.data_area[da].tiles.append(Tile(rw['rowid'], r_st_time, r_fi_time, rw['start'], rw['finish'], rw['duration'], rw['color'], 
@@ -301,14 +293,14 @@ class Render:
                 self.debug (f"\t\t{ti}" +
                             f" {bcolors.CRED}{calc_time_x_width(ti.duration, default_cell_width)} px{bcolors.CEND}")  
 
-    # function for calculation data area number by the given time
+    # функция get_data_area рассчитывает номер блока данных (data_area) по заданному времени завершения действия, т.е. куда попадает ячейка
     def get_data_area (self, calc_time):
         for i in range(self.data_count):
             if calc_time.time <= self.data_area[i].time_finish.time:
                 return i
         return self.data_count
 
-    # 3 step 
+    # 3 шаг, отрисовка
     def render(self):
         self.debug (f"{bcolors.CYELLOW}Rendering data{bcolors.CEND}")
         self.debug (f"\tCell width {bcolors.CGREEN}{default_cell_width}{bcolors.CEND} height {bcolors.CGREEN}{default_cell_height}{bcolors.CEND}")
@@ -319,7 +311,7 @@ class Render:
         da_data_height = default_cell_height * self.max_rows 
         da_height = default_header_height + da_data_height + default_data_areas_border
 
-        # calculate comments and additional space
+        # определение комментариев и дополнительного места 
         for da in self.data_area:
             data_y = da.id * da_height
             for ti in da.tiles:
@@ -351,27 +343,27 @@ class Render:
         for da in self.data_area:
             data_y = da.id * da_height
 
-            # draw canvas
+            # нарисовать полотно (canvas)
             self.debug (f"\tData area {bcolors.CYELLOW}{da.id}{bcolors.CEND} Y from {bcolors.CGREEN}{data_y}{bcolors.CEND} to {bcolors.CGREEN}{data_y + da_height}{bcolors.CEND}")
 
-            # data rect
+            # прямоугольники с данными
             self.d.append (drawsvg.Rectangle (default_id_column_width + default_desc_column_width, data_y + default_header_height, 
                                               self.max_cols * default_cell_width, da_data_height, fill='none', stroke=colors['grid']['border']))
-            # vertical data rects
+            # разметка клеток по вертикали
             for i in range (self.max_cols):
                 self.d.append (drawsvg.Rectangle (default_id_column_width + default_desc_column_width + i * default_cell_width, data_y + default_header_height, 
                                 default_cell_width, da_data_height, fill='none', stroke=colors['grid']['border']))
-            # horizontal data rects
+            # разметка клеток по горизонтали
             for i in range (self.max_rows):
                 self.d.append (drawsvg.Rectangle (0, data_y + default_header_height + i * default_cell_height, 
                                 default_id_column_width + default_desc_column_width + self.max_cols * default_cell_width, default_cell_height, fill='none', stroke=colors['grid']['border']))
-            # timeline captions
+            # подписи временной шкалы
             for i in range (self.max_cols+1):
                 self.d.append(drawsvg.Text(f"{i + self.max_cols * da.id}", default_font_size, 
                                 default_id_column_width + default_desc_column_width + default_cell_width * i, 
                                 data_y + default_header_height - 5, 
                                 fill='black'))            
-            # id rect
+            # отрисовка прямоугольников с ID
             self.d.append (drawsvg.Rectangle (0, data_y + default_header_height, 
                                               default_id_column_width, da_data_height, fill='none', stroke=colors['grid']['border']))
             for i in range (self.max_rows):
@@ -379,7 +371,7 @@ class Render:
                                 10, 
                                 data_y + default_header_height + i * default_cell_height + default_cell_height // 2, 
                                 fill='black'))                  
-            # desc rect
+            # отрисовка прямоугольников с описанием (description)
             self.d.append (drawsvg.Rectangle (default_id_column_width, data_y + default_header_height, 
                                               default_desc_column_width, da_data_height, fill='none', stroke=colors['grid']['border']))  
             for i in range (self.max_rows):
@@ -387,14 +379,14 @@ class Render:
                                 default_id_column_width + 10, 
                                 data_y + default_header_height + i * default_cell_height + default_cell_height // 2, 
                                 fill='black'))                         
-            # draw tiles
+            # отрисовка ячеек
             for ti in da.tiles:
                 tix = default_id_column_width + default_desc_column_width + calc_time_x_width (ti.start, default_cell_width)
                 tiy = data_y + default_header_height + ti.rowid * default_cell_height
                 tiw = calc_time_x_width (ti.finish - ti.start, default_cell_width)
                 self.d.append (drawsvg.Rectangle (tix, tiy, tiw, default_cell_height, fill=ti.fill_color, stroke=ti.border_color, rx=ti.rx))
                 
-                # try to calculate render width of the text
+                # расчет ширины текста в пикселях (помещается или нет в ячейку...)
                 text_size = max(default_font_size // 1.7 * len(ti.caption), default_font_size * len(ti.caption2))
 
                 if text_size > tiw + default_font_size * 2:
@@ -413,20 +405,21 @@ class Render:
                 else:
                     ticaption1 = f"{ti.caption}"
                     ticaption2 = f"{ti.caption2}"
-                    # write cell caption with secondary text
+                    # печать дополнительного текста в ячейке (вторая строка, преимущественно выводится время этапа)
                     self.d.append(drawsvg.Text(ticaption1, default_font_size, tix + 5, tiy + default_cell_height // 2 - 5, fill=ti.stroke_color)) 
                     self.d.append(drawsvg.Text(ticaption2, default_font_size, tix + 5, tiy + default_cell_height // 2 + default_font_size , fill=ti.stroke_color)) 
             
-        # write comments
+        # отрисовка комментариев
         for i in range (self.max_comments):
             self.d.append(drawsvg.Text(self.comments[i], default_font_size, 
                                        5, da_height * self.data_count + i * default_font_size, fill='black'))                 
     
-    # 4 step
+    # 4 шаг, сохранение PNG
     def save_png (self):
         self.debug (f"\n{bcolors.CYELLOW}Saved PNG file: {bcolors.CGREEN} {self.filename + '.png'}{bcolors.CEND}")
         self.d.save_png(self.filename + '.png')        
     
+    # 4 шаг, сохранение SVG
     def save_svg (self):
         self.debug (f"\n{bcolors.CYELLOW}Saved SVG file: {bcolors.CGREEN} {self.filename + '.svg'}{bcolors.CEND}")
         self.d.save_svg(self.filename + '.svg')    

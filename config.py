@@ -1,10 +1,24 @@
+# Главные настройки
 
-# Calculate X size in pixels for a given time and cell width
+default_cell_width = 80         # ширина ячейки в пикселях
+default_cell_height = 50        # высота ячейки в пикселях
+default_rx = 5                  # радиус загругления прямоугольников с ячейками
+default_opacity = 1             # прозрачность ячеек
+
+default_id_column_width = 80    # ширина ячейки с ID системы
+default_desc_column_width = 160 # ширина ячейки с описанием системы
+default_header_height = 30      # высота заголовка с надписями шкалы
+default_data_areas_border = 50  # отступ по вертикали между блоками DATA AREA (одно полотно на ширину размера отрисовываемой картинки)
+
+default_font_size = 14          # размер шрифта по умолчанию
+
+
+# Рассчитывает размер ячейки по оси X в пикселях, в зависимости от времени
 def calc_time_x_width (time_to_calc, width_of_cell):
     return int(time_to_calc.hours * width_of_cell + time_to_calc.minutes * width_of_cell / 60)
 
 
-# class for operations with time
+# Класс для операций с временем
 class Rtime():
     def __init__(self, init_hrs, init_min, init_sec):
         self.hours = init_hrs
@@ -22,28 +36,32 @@ class Rtime():
                      integer_parameter // 60 % 60, 
                      integer_parameter % 60)
         
-    # exact full value of `var` in format HH:MM:SS
+    # точное значение `var` в формате HH:MM:SS
     def __repr__(self):      
         return f'{"{:02d}".format(self.hours)}:{"{:02d}".format(self.minutes)}:{"{:02d}".format(self.seconds)}'
     
-    # short value of var in format HH:MM
+    # сокращенное значение в формате HH:MM
     def __str__(self):
         return f'{"{:02d}".format(self.hours)}:{"{:02d}".format(self.minutes)}'
     
+    # операция +
     def __add__(self, value):
         return Rtime.fromint(self.time + value.time)
 
+    # операция -
     def __sub__(self, value):
         return Rtime.fromint(self.time - value.time)
     
+    # операция <
     def __lt__(self, other):
         return self.time < other.time
     
+    # операция >
     def __gt__(self, other):
         return self.time > other.time
 
 
-# colors for terminal and debug output
+# цвета для вывода сообщений в консоль в режиме DEBUG
 class bcolors:
     CEND      = '\33[0m'
     CBOLD     = '\33[1m'
@@ -62,7 +80,7 @@ class bcolors:
     CWHITE  = '\33[37m'
 
 
-# colors for render
+# палитра цветов по-умолчанию (если не загружена из файла)
 colors = {
     'green' : {
         'border' : '#A5DD9B',
@@ -136,6 +154,7 @@ colors = {
     },
 }
 
+# палитра цветов по-умолчанию (разработана для копирования на случай ошибок в colors, скопируйте отсюда)
 default_colors = {
     'green' : {
         'border' : '#A5DD9B',
@@ -198,17 +217,3 @@ default_colors = {
         'stroke' : 'black'          
     },
 }
-
-
-# render settings
-default_cell_width = 80         
-default_cell_height = 50        
-default_rx = 5
-default_opacity = 1
-
-default_id_column_width = 80    # ширина ячейки с ID системы
-default_desc_column_width = 160 # ширина ячейки с описанием системы
-default_header_height = 30      # высота заголовка с надписями шкалы
-default_data_areas_border = 50  # отступ по вертикали между блоками DATA AREA
-
-default_font_size = 14
