@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+     width="1970" height="917" viewBox="0 0 1970 917">
+<defs>
+</defs>
+<rect x="0" y="0" width="1970" height="917" fill="white" stroke="white" />
+<rect x="260" y="30" width="1600" height="350" fill="none" stroke="#525E75" />
+<rect x="260" y="30" width="80" height="350" fill="none" stroke="#525E75" />
+<rect x="340" y="30" width="80" height="350" fill="none" stroke="#525E75" />
+<rect x="420" y="30" width="80" height="350" fill="none" stroke="#525E75" />
+<rect x="500" y="30" width="80" height="350" fill="none" stroke="#525E75" />
+<rect x="580" y="30" width="80" height="350" fill="none" stroke="#525E75" />
+<rect x="660" y="30" width="80" height="350" fill="none" stroke="#525E75" />
+<rect x="740" y="30" width="80" height="350" fill="none" stroke="#525E75" />
+<rect x="820" y="30" width="80" height="350" fill="none" stroke="#525E75" />
+<rect x="900" y="30" width="80" height="350" fill="none" stroke="#525E75" />
+<rect x="980" y="30" width="80" height="350" fill="none" stroke="#525E75" />
+<rect x="1060" y="30" width="80" height="350" fill="none" stroke="#525E75" />
+<rect x="1140" y="30" width="80" height="350" fill="none" stroke="#525E75" />
+<rect x="1220" y="30" width="80" height="350" fill="none" stroke="#525E75" />
+<rect x="1300" y="30" width="80" height="350" fill="none" stroke="#525E75" />
+<rect x="1380" y="30" width="80" height="350" fill="none" stroke="#525E75" />
+<rect x="1460" y="30" width="80" height="350" fill="none" stroke="#525E75" />
+<rect x="1540" y="30" width="80" height="350" fill="none" stroke="#525E75" />
+<rect x="1620" y="30" width="80" height="350" fill="none" stroke="#525E75" />
+<rect x="1700" y="30" width="80" height="350" fill="none" stroke="#525E75" />
+<rect x="1780" y="30" width="80" height="350" fill="none" stroke="#525E75" />
+<rect x="0" y="30" width="1860" height="50" fill="none" stroke="#525E75" />
+<rect x="0" y="80" width="1860" height="50" fill="none" stroke="#525E75" />
+<rect x="0" y="130" width="1860" height="50" fill="none" stroke="#525E75" />
+<rect x="0" y="180" width="1860" height="50" fill="none" stroke="#525E75" />
+<rect x="0" y="230" width="1860" height="50" fill="none" stroke="#525E75" />
+<rect x="0" y="280" width="1860" height="50" fill="none" stroke="#525E75" />
+<rect x="0" y="330" width="1860" height="50" fill="none" stroke="#525E75" />
+<text x="260" y="25" font-size="14" fill="black">0</text>
+<text x="340" y="25" font-size="14" fill="black">1</text>
+<text x="420" y="25" font-size="14" fill="black">2</text>
+<text x="500" y="25" font-size="14" fill="black">3</text>
+<text x="580" y="25" font-size="14" fill="black">4</text>
+<text x="660" y="25" font-size="14" fill="black">5</text>
+<text x="740" y="25" font-size="14" fill="black">6</text>
+<text x="820" y="25" font-size="14" fill="black">7</text>
+<text x="900" y="25" font-size="14" fill="black">8</text>
+<text x="980" y="25" font-size="14" fill="black">9</text>
+<text x="1060" y="25" font-size="14" fill="black">10</text>
+<text x="1140" y="25" font-size="14" fill="black">11</text>
+<text x="1220" y="25" font-size="14" fill="black">12</text>
+<text x="1300" y="25" font-size="14" fill="black">13</text>
+<text x="1380" y="25" font-size="14" fill="black">14</text>
+<text x="1460" y="25" font-size="14" fill="black">15</text>
+<text x="1540" y="25" font-size="14" fill="black">16</text>
+<text x="1620" y="25" font-size="14" fill="black">17</text>
+<text x="1700" y="25" font-size="14" fill="black">18</text>
+<text x="1780" y="25" font-size="14" fill="black">19</text>
+<text x="1860" y="25" font-size="14" fill="black">20</text>
+<rect x="0" y="30" width="80" height="350" fill="none" stroke="#525E75" />
+<text x="10" y="55" font-size="14" fill="black">95_1</text>
+<text x="10" y="105" font-size="14" fill="black">95_2</text>
+<text x="10" y="155" font-size="14" fill="black">95_2</text>
+<text x="10" y="205" font-size="14" fill="black"></text>
+<text x="10" y="255" font-size="14" fill="black">2044</text>
+<text x="10" y="305" font-size="14" fill="black">2044</text>
+<text x="10" y="355" font-size="14" fill="black">2044</text>
+<rect x="80" y="30" width="180" height="350" fill="none" stroke="#525E75" />
+<text x="90" y="55" font-size="14" fill="black">RDM</text>
+<text x="90" y="105" font-size="14" fill="black">SAS RRM</text>
+<text x="90" y="155" font-size="14" fill="black">SAS RRM</text>
+<text x="90" y="205" font-size="14" fill="black">Аналитики</text>
+<text x="90" y="255" font-size="14" fill="black">Общие</text>
+<text x="90" y="305" font-size="14" fill="black">СТД</text>
+<text x="90" y="355" font-size="14" fill="black">ПВР</text>
+<rect x="260" y="30" width="480" height="50" fill="#D2E0FB" stroke="#7EA6E0" rx="5" />
+<text x="265" y="50" font-size="14" fill="#1D1E33">Срез</text>
+<text x="265" y="69" font-size="14" fill="#1D1E33">06:00</text>
+<rect x="740" y="80" width="386" height="50" fill="#CCFF99" stroke="#A5DD9B" rx="5" />
+<text x="745" y="100" font-size="14" fill="#21421E">СТД</text>
+<text x="745" y="119" font-size="14" fill="#21421E">04:50</text>
+<rect x="740" y="130" width="306" height="50" fill="#CCFF99" stroke="#A5DD9B" rx="5" />
+<text x="745" y="150" font-size="14" fill="#21421E">ПВР</text>
+<text x="745" y="169" font-size="14" fill="#21421E">03:50</text>
+<rect x="740" y="30" width="306" height="50" fill="#D2E0FB" stroke="#7EA6E0" rx="5" />
+<text x="745" y="50" font-size="14" fill="#1D1E33">Копия среза</text>
+<text x="745" y="69" font-size="14" fill="#1D1E33">03:50</text>
+<rect x="1126" y="80" width="80" height="50" fill="#FFA500" stroke="#666600" rx="5" />
+<text x="1131" y="100" font-size="14" fill="#4F0014">BI</text>
+<text x="1131" y="119" font-size="14" fill="#4F0014">01:00</text>
+<rect x="1046" y="130" width="80" height="50" fill="purple" stroke="red" rx="5" />
+<text x="1051" y="150" font-size="14" fill="white">BI</text>
+<text x="1051" y="169" font-size="14" fill="white">01:00</text>
+<rect x="1206" y="80" width="653" height="50" fill="#FFFF99" stroke="#7B3F00" rx="5" />
+<text x="1211" y="100" font-size="14" fill="#65000B">MIX</text>
+<text x="1211" y="119" font-size="14" fill="#65000B">11:00</text>
+<rect x="1126" y="180" width="213" height="50" fill="#B5B8B1" stroke="#525E75" rx="5" />
+<text x="1131" y="200" font-size="14" fill="black">Корректировки</text>
+<text x="1131" y="219" font-size="14" fill="black">02:40</text>
+<rect x="1340" y="180" width="120" height="50" fill="#000000" stroke="#525E75" rx="5" />
+<text x="1345" y="200" font-size="14" fill="white">Загр.корр.</text>
+<text x="1345" y="219" font-size="14" fill="white">01:30</text>
+<rect x="1340" y="230" width="53" height="50" fill="#FFC5C5" stroke="#B06161" rx="5" />
+<text x="1345" y="250" font-size="14" fill="#4F0014">Общие</text>
+<text x="1345" y="269" font-size="14" fill="#4F0014">00:40</text>
+<rect x="1393" y="280" width="120" height="50" fill="#FFFF99" stroke="#7B3F00" rx="5" />
+<text x="1398" y="300" font-size="14" fill="#65000B">СТД</text>
+<text x="1398" y="319" font-size="14" fill="#65000B">01:30</text>
+<rect x="1393" y="330" width="26" height="50" fill="#FFFF99" stroke="#7B3F00" rx="5" />
+<circle cx="1406" cy="355" r="14" stroke="#525E75" fill="#E0E0E0" />
+<text x="1402" y="358" font-size="14" stroke="black">1</text>
+<rect x="260" y="460" width="1600" height="350" fill="none" stroke="#525E75" />
+<rect x="260" y="460" width="80" height="350" fill="none" stroke="#525E75" />
+<rect x="340" y="460" width="80" height="350" fill="none" stroke="#525E75" />
+<rect x="420" y="460" width="80" height="350" fill="none" stroke="#525E75" />
+<rect x="500" y="460" width="80" height="350" fill="none" stroke="#525E75" />
+<rect x="580" y="460" width="80" height="350" fill="none" stroke="#525E75" />
+<rect x="660" y="460" width="80" height="350" fill="none" stroke="#525E75" />
+<rect x="740" y="460" width="80" height="350" fill="none" stroke="#525E75" />
+<rect x="820" y="460" width="80" height="350" fill="none" stroke="#525E75" />
+<rect x="900" y="460" width="80" height="350" fill="none" stroke="#525E75" />
+<rect x="980" y="460" width="80" height="350" fill="none" stroke="#525E75" />
+<rect x="1060" y="460" width="80" height="350" fill="none" stroke="#525E75" />
+<rect x="1140" y="460" width="80" height="350" fill="none" stroke="#525E75" />
+<rect x="1220" y="460" width="80" height="350" fill="none" stroke="#525E75" />
+<rect x="1300" y="460" width="80" height="350" fill="none" stroke="#525E75" />
+<rect x="1380" y="460" width="80" height="350" fill="none" stroke="#525E75" />
+<rect x="1460" y="460" width="80" height="350" fill="none" stroke="#525E75" />
+<rect x="1540" y="460" width="80" height="350" fill="none" stroke="#525E75" />
+<rect x="1620" y="460" width="80" height="350" fill="none" stroke="#525E75" />
+<rect x="1700" y="460" width="80" height="350" fill="none" stroke="#525E75" />
+<rect x="1780" y="460" width="80" height="350" fill="none" stroke="#525E75" />
+<rect x="0" y="460" width="1860" height="50" fill="none" stroke="#525E75" />
+<rect x="0" y="510" width="1860" height="50" fill="none" stroke="#525E75" />
+<rect x="0" y="560" width="1860" height="50" fill="none" stroke="#525E75" />
+<rect x="0" y="610" width="1860" height="50" fill="none" stroke="#525E75" />
+<rect x="0" y="660" width="1860" height="50" fill="none" stroke="#525E75" />
+<rect x="0" y="710" width="1860" height="50" fill="none" stroke="#525E75" />
+<rect x="0" y="760" width="1860" height="50" fill="none" stroke="#525E75" />
+<text x="260" y="455" font-size="14" fill="black">20</text>
+<text x="340" y="455" font-size="14" fill="black">21</text>
+<text x="420" y="455" font-size="14" fill="black">22</text>
+<text x="500" y="455" font-size="14" fill="black">23</text>
+<text x="580" y="455" font-size="14" fill="black">24</text>
+<text x="660" y="455" font-size="14" fill="black">25</text>
+<text x="740" y="455" font-size="14" fill="black">26</text>
+<text x="820" y="455" font-size="14" fill="black">27</text>
+<text x="900" y="455" font-size="14" fill="black">28</text>
+<text x="980" y="455" font-size="14" fill="black">29</text>
+<text x="1060" y="455" font-size="14" fill="black">30</text>
+<text x="1140" y="455" font-size="14" fill="black">31</text>
+<text x="1220" y="455" font-size="14" fill="black">32</text>
+<text x="1300" y="455" font-size="14" fill="black">33</text>
+<text x="1380" y="455" font-size="14" fill="black">34</text>
+<text x="1460" y="455" font-size="14" fill="black">35</text>
+<text x="1540" y="455" font-size="14" fill="black">36</text>
+<text x="1620" y="455" font-size="14" fill="black">37</text>
+<text x="1700" y="455" font-size="14" fill="black">38</text>
+<text x="1780" y="455" font-size="14" fill="black">39</text>
+<text x="1860" y="455" font-size="14" fill="black">40</text>
+<rect x="0" y="460" width="80" height="350" fill="none" stroke="#525E75" />
+<text x="10" y="485" font-size="14" fill="black">95_1</text>
+<text x="10" y="535" font-size="14" fill="black">95_2</text>
+<text x="10" y="585" font-size="14" fill="black">95_2</text>
+<text x="10" y="635" font-size="14" fill="black"></text>
+<text x="10" y="685" font-size="14" fill="black">2044</text>
+<text x="10" y="735" font-size="14" fill="black">2044</text>
+<text x="10" y="785" font-size="14" fill="black">2044</text>
+<rect x="80" y="460" width="180" height="350" fill="none" stroke="#525E75" />
+<text x="90" y="485" font-size="14" fill="black">RDM</text>
+<text x="90" y="535" font-size="14" fill="black">SAS RRM</text>
+<text x="90" y="585" font-size="14" fill="black">SAS RRM</text>
+<text x="90" y="635" font-size="14" fill="black">Аналитики</text>
+<text x="90" y="685" font-size="14" fill="black">Общие</text>
+<text x="90" y="735" font-size="14" fill="black">СТД</text>
+<text x="90" y="785" font-size="14" fill="black">ПВР</text>
+<rect x="260" y="510" width="226" height="50" fill="#FFFF99" stroke="#7B3F00" rx="5" />
+<text x="265" y="530" font-size="14" fill="#65000B">MIX</text>
+<text x="265" y="549" font-size="14" fill="#65000B">11:00</text>
+<text x="5" y="860" font-size="14" fill="black">(1) ПВР : 00:20</text>
+</svg>

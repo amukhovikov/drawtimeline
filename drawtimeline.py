@@ -83,7 +83,7 @@ class Render:
 
     # print debug information 
     def debug(self, debug_element):
-        if self.debug:
+        if self.debug_mode:
             print (debug_element)
 
 
@@ -261,7 +261,7 @@ class Render:
             area_start = self.get_data_area(rw['start'])
             area_finish = self.get_data_area(rw['finish'])
             if area_start != area_finish:
-                print (f"\t{bcolors.CRED}Split{bcolors.CEND} Row {bcolors.CYELLOW}{rw['filerowid']}{bcolors.CEND} : " +
+                self.debug (f"\t{bcolors.CRED}Split{bcolors.CEND} Row {bcolors.CYELLOW}{rw['filerowid']}{bcolors.CEND} : " +
                        f"{bcolors.CYELLOW}{rw['start']} - {rw['finish']}{bcolors.CEND}" +
                        f" between data area {bcolors.CGREEN}{area_start}{bcolors.CEND} and {bcolors.CGREEN}{area_finish}{bcolors.CEND}" +
                        f" (cell finish - {bcolors.CYELLOW}{rw['finish']}{bcolors.CEND})," +

@@ -135,7 +135,7 @@ colors = {
     'purple' : {
         'border' : 'red',        
         'fill' : 'purple',
-        'stroke' : 'yellow'      
+        'stroke' : 'white'      
     },     
     'cell' : {
         'border' : '#525E75',        

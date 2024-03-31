@@ -1,11 +1,8 @@
 from drawtimeline import *
-
-svg = Render()
-
-svg.load_data_from_csv('examples\colors.csv', encoding='cp1251')
-
-svg.process_rawdata(normalize_time=False)
-
+svg = Render(ignore_screen_size=False)
+svg.load_data_from_csv('examples\software_log.csv', encoding='UTF-8')
+svg.process_rawdata()
 svg.render()
-svg.save_svg()
 svg.save_png()
+svg.save_svg()
+
