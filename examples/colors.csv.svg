@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+     width="840" height="280" viewBox="0 0 840 280">
+<defs>
+</defs>
+<rect x="0" y="0" width="840" height="280" fill="white" stroke="white" />
+<rect x="260" y="30" width="560" height="200" fill="none" stroke="#525E75" />
+<rect x="260" y="30" width="80" height="200" fill="none" stroke="#525E75" />
+<rect x="340" y="30" width="80" height="200" fill="none" stroke="#525E75" />
+<rect x="420" y="30" width="80" height="200" fill="none" stroke="#525E75" />
+<rect x="500" y="30" width="80" height="200" fill="none" stroke="#525E75" />
+<rect x="580" y="30" width="80" height="200" fill="none" stroke="#525E75" />
+<rect x="660" y="30" width="80" height="200" fill="none" stroke="#525E75" />
+<rect x="740" y="30" width="80" height="200" fill="none" stroke="#525E75" />
+<rect x="0" y="30" width="820" height="50" fill="none" stroke="#525E75" />
+<rect x="0" y="80" width="820" height="50" fill="none" stroke="#525E75" />
+<rect x="0" y="130" width="820" height="50" fill="none" stroke="#525E75" />
+<rect x="0" y="180" width="820" height="50" fill="none" stroke="#525E75" />
+<text x="260" y="25" font-size="14" fill="black">0</text>
+<text x="340" y="25" font-size="14" fill="black">1</text>
+<text x="420" y="25" font-size="14" fill="black">2</text>
+<text x="500" y="25" font-size="14" fill="black">3</text>
+<text x="580" y="25" font-size="14" fill="black">4</text>
+<text x="660" y="25" font-size="14" fill="black">5</text>
+<text x="740" y="25" font-size="14" fill="black">6</text>
+<text x="820" y="25" font-size="14" fill="black">7</text>
+<rect x="0" y="30" width="80" height="200" fill="none" stroke="#525E75" />
+<text x="10" y="55" font-size="14" fill="black">Цвета</text>
+<text x="10" y="105" font-size="14" fill="black">Цвета</text>
+<text x="10" y="155" font-size="14" fill="black">Цвета</text>
+<text x="10" y="205" font-size="14" fill="black">Цвета</text>
+<rect x="80" y="30" width="180" height="200" fill="none" stroke="#525E75" />
+<text x="90" y="55" font-size="14" fill="black">зеленый,синий</text>
+<text x="90" y="105" font-size="14" fill="black">черный,белый,красный</text>
+<text x="90" y="155" font-size="14" fill="black">желтый,пурпурный</text>
+<text x="90" y="205" font-size="14" fill="black">серый</text>
+<rect x="260" y="30" width="160" height="50" fill="#CCFF99" stroke="#A5DD9B" rx="5" />
+<text x="265" y="50" font-size="14" fill="#21421E">green</text>
+<text x="265" y="69" font-size="14" fill="#21421E">02:00</text>
+<rect x="420" y="30" width="160" height="50" fill="#D2E0FB" stroke="#7EA6E0" rx="5" />
+<text x="425" y="50" font-size="14" fill="#1D1E33">blue</text>
+<text x="425" y="69" font-size="14" fill="#1D1E33">02:00</text>
+<rect x="580" y="30" width="160" height="50" fill="#7EA6E0" stroke="#002F55" rx="5" />
+<text x="585" y="50" font-size="14" fill="#1D1E33">darkblue</text>
+<text x="585" y="69" font-size="14" fill="#1D1E33">02:00</text>
+<rect x="260" y="80" width="160" height="50" fill="white" stroke="black" rx="5" />
+<text x="265" y="100" font-size="14" fill="black">white</text>
+<text x="265" y="119" font-size="14" fill="black">02:00</text>
+<rect x="420" y="80" width="160" height="50" fill="#000000" stroke="#525E75" rx="5" />
+<text x="425" y="100" font-size="14" fill="white">black</text>
+<text x="425" y="119" font-size="14" fill="white">02:00</text>
+<rect x="580" y="80" width="160" height="50" fill="#FFC5C5" stroke="#B06161" rx="5" />
+<text x="585" y="100" font-size="14" fill="#4F0014">red</text>
+<text x="585" y="119" font-size="14" fill="#4F0014">02:00</text>
+<rect x="260" y="130" width="160" height="50" fill="#FFFF99" stroke="#7B3F00" rx="5" />
+<text x="265" y="150" font-size="14" fill="#65000B">yellow</text>
+<text x="265" y="169" font-size="14" fill="#65000B">02:00</text>
+<rect x="420" y="130" width="160" height="50" fill="#FFA500" stroke="#666600" rx="5" />
+<text x="425" y="150" font-size="14" fill="#4F0014">orange</text>
+<text x="425" y="169" font-size="14" fill="#4F0014">02:00</text>
+<rect x="580" y="130" width="160" height="50" fill="purple" stroke="red" rx="5" />
+<text x="585" y="150" font-size="14" fill="yellow">purple</text>
+<text x="585" y="169" font-size="14" fill="yellow">02:00</text>
+<rect x="260" y="180" width="160" height="50" fill="#B5B8B1" stroke="#525E75" rx="5" />
+<text x="265" y="200" font-size="14" fill="black">gray</text>
+<text x="265" y="219" font-size="14" fill="black">02:00</text>
+</svg>

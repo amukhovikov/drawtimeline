@@ -89,12 +89,13 @@ class Render:
 
     # 1 шаг (CSV)
     # Формат CSV:  [0] номер дорожки, [1] ID источника/системы, [2] Описание источника/системы, [3] время старта, [4] время завершения, [5] цвет, [6] описание действий
-    def load_data_from_csv (self, filename):
+    # кодировка по умолчанию = CP1251
+    def load_data_from_csv (self, filename, encoding='cp1251'):
 
         self.debug (f"\n{bcolors.CYELLOW}Loading raw data from CSV '{bcolors.CGREEN}{filename}{bcolors.CEND}'")
         self.filename = filename
         file_row_id = 0
-        with open(self.filename, encoding='utf-8') as csv_file:
+        with open(self.filename, encoding=encoding) as csv_file:
             # читаем файл по строкам
             for row in csv.reader(csv_file, delimiter=';'):
                 file_row_id += 1
@@ -127,7 +128,8 @@ class Render:
 
     # 1 шаг (JSON)
     # JSON формат:  BUG: _no format_
-    def load_data_from_json (self, filename):
+    # кодировка по умолчанию = UTF-8
+    def load_data_from_json (self, filename, encoding='utf-8'):
 
         self.debug (f"\n{bcolors.CYELLOW}Loading raw data from JSON '{bcolors.CGREEN}{filename}{bcolors.CEND}'")
         self.filename = filename

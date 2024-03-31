@@ -6,7 +6,7 @@ default_rx = 5                  # радиус загругления прямо
 default_opacity = 1             # прозрачность ячеек
 
 default_id_column_width = 80    # ширина ячейки с ID системы
-default_desc_column_width = 160 # ширина ячейки с описанием системы
+default_desc_column_width = 180 # ширина ячейки с описанием системы
 default_header_height = 30      # высота заголовка с надписями шкалы
 default_data_areas_border = 50  # отступ по вертикали между блоками DATA AREA (одно полотно на ширину размера отрисовываемой картинки)
 
@@ -80,22 +80,22 @@ class bcolors:
     CWHITE  = '\33[37m'
 
 
-# палитра цветов по-умолчанию (если не загружена из файла)
+# палитра цветов по умолчанию (если не загружена из файла)
 colors = {
     'green' : {
         'border' : '#A5DD9B',
         'fill' :  '#CCFF99',
-        'stroke' : 'black'
+        'stroke' : '#21421E'
     },
     'blue' : {
-        'border' : '#8EACCD',
+        'border' : '#7EA6E0',
         'fill' :  '#D2E0FB',
-        'stroke' : 'black'
+        'stroke' : '#1D1E33'
     },
     'darkblue' : {
-        'border' : '#8EACCD',
+        'border' : '#002F55',
         'fill' :  '#7EA6E0',
-        'stroke' : 'black'
+        'stroke' : '#1D1E33'
     },
     'white' : {
         'border' : 'black',
@@ -105,21 +105,21 @@ colors = {
     'red' : {
         'border' : '#B06161',
         'fill' :  '#FFC5C5',
-        'stroke' : '#B06161' 
+        'stroke' : '#4F0014' 
     },
     'yellow' : {
-        'border' : '#666600',
+        'border' : '#7B3F00',
         'fill' :  '#FFFF99',
-        'stroke' : '#black'
+        'stroke' : '#65000B'
     }, 
-    'darkyellow' : {
+    'orange' : {
         'border' : '#666600',
-        'fill' :  '#FFFF99',
-        'stroke' : '#black'
+        'fill' :  '#FFA500',
+        'stroke' : '#4F0014'
     },    
     'gray' : {
         'border' : '#525E75',
-        'fill' :  '#EEEEEE',
+        'fill' :  '#B5B8B1',
         'stroke' : 'black'  
     },
     'none' : {
@@ -154,17 +154,22 @@ colors = {
     },
 }
 
-# палитра цветов по-умолчанию (разработана для копирования на случай ошибок в colors, скопируйте отсюда)
+# палитра цветов по умолчанию (разработана для копирования на случай ошибок в colors, скопируйте отсюда)
 default_colors = {
     'green' : {
         'border' : '#A5DD9B',
-        'fill' :  '#E1F0DA',
-        'stroke' : 'black'
+        'fill' :  '#CCFF99',
+        'stroke' : '#21421E'
     },
     'blue' : {
-        'border' : '#8EACCD',
+        'border' : '#7EA6E0',
         'fill' :  '#D2E0FB',
-        'stroke' : 'black'
+        'stroke' : '#1D1E33'
+    },
+    'darkblue' : {
+        'border' : '#002F55',
+        'fill' :  '#7EA6E0',
+        'stroke' : '#1D1E33'
     },
     'white' : {
         'border' : 'black',
@@ -174,16 +179,21 @@ default_colors = {
     'red' : {
         'border' : '#B06161',
         'fill' :  '#FFC5C5',
-        'stroke' : '#B06161' 
+        'stroke' : '#4F0014' 
     },
     'yellow' : {
-        'border' : '#ECEE81',
-        'fill' :  '#F6FDC3',
-        'stroke' : '#525E75'
-    },
+        'border' : '#7B3F00',
+        'fill' :  '#FFFF99',
+        'stroke' : '#65000B'
+    }, 
+    'orange' : {
+        'border' : '#666600',
+        'fill' :  '#FFA500',
+        'stroke' : '#4F0014'
+    },    
     'gray' : {
         'border' : '#525E75',
-        'fill' :  '#EEEEEE',
+        'fill' :  '#B5B8B1',
         'stroke' : 'black'  
     },
     'none' : {
@@ -213,7 +223,7 @@ default_colors = {
     },
     'comments' : {
         'border' : '#525E75',
-        'fill' :  'cyan',
+        'fill' :  '#E0E0E0',
         'stroke' : 'black'          
     },
 }
