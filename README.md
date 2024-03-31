@@ -1,9 +1,11 @@
 # TimelineRender App
 
-This app requires `Python` and `drawsvg`, `csv` packages
+This app requires `Python` and `drawsvg` package
 You can render `PNG` or `SVG` files with any timelines using `CSV` find with data
 
 QuickStart: execute `python test_drawtimeline.py` and check results
+
+Full documentation: check `docs` folder
 
 ## CSV format
 
@@ -26,6 +28,8 @@ CSV example:
 </i>
 
 ## Examples on GitHub
+
+Check CSV files and results in `examples` folder:
 
 <li>colors.csv - simple file with colors
 <li>project.csv - example of project workflow with UTF-8 encoding
